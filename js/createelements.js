@@ -15,8 +15,8 @@ function CreateActivePrivateServersButton(){
     ButtonSpan.setAttribute("ng-bind", "subcategory.displayName")
     ButtonSpan.innerText = "Active Private Servers"
 
-    List.appendChild(ButtonSpan)
     List.appendChild(ButtonRedirect)
+    List.appendChild(ButtonSpan)
 
     return [List, ButtonSpan]
 }

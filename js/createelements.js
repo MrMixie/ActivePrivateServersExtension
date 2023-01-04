@@ -49,6 +49,7 @@ function CreatePrivateServerCard(GameIcon, Name, OwnerName, OwnerId, Price, Plac
     ThumbnailSpan.className = "thumbnail-2d-container"
     ThumbnailSpan.setAttribute("thumbnail-type", "GameIcon")
     ThumbnailSpan.setAttribute("thumbnail-target-id", "0")
+    ThumbnailSpan.style = "width:100%; height:100%;"
 
     const ThumbnailImage = document.createElement("img")
     ThumbnailImage.setAttribute("ng-if", "$ctrl.thumbnailUrl && !$ctrl.isLazyLoadingEnabled()")
@@ -95,7 +96,7 @@ function CreatePrivateServerCard(GameIcon, Name, OwnerName, OwnerId, Price, Plac
     CreatorNameButton.setAttribute("ng-show", "$ctrl.currentData.isPrivateServerCategoryType")
     CreatorNameButton.setAttribute("ng-bind", "item.PrivateServer.nameForDisplay")
     CreatorNameButton.href = `https://www.roblox.com/users/${OwnerId}/profile/`
-    CreatorNameButton.innerText = OwnerName
+    CreatorNameButton.innerText = ` @${OwnerName}`
 
     CreatorNameDiv.appendChild(CreatorNameBySpan)
     CreatorNameDiv.appendChild(CreatorNameFakeButton)
@@ -112,10 +113,10 @@ function CreatePrivateServerCard(GameIcon, Name, OwnerName, OwnerId, Price, Plac
     }
 
     const TextRobuxTitle = document.createElement("span")
-    TextRobuxTitle.className = "TextRobuxTitle"
+    TextRobuxTitle.className = "text-robux-tile ng-binding"
     TextRobuxTitle.setAttribute("ng-show", "$ctrl.doesItemHavePrice(item)")
     TextRobuxTitle.setAttribute("ng-bind", "$ctrl.getDisplayPrice(item) | abbreviate : 0")
-    TextRobuxTitle.innerText = Price > 0 && Price || ""
+    TextRobuxTitle.innerText = ` ${Price > 0 && Price || ""}`
 
     ItemCardPrice.appendChild(TextRobuxTitle)
 

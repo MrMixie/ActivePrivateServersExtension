@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Active Private Servers",
+    "description": "Allows you to see which private servers are actively billing you",
+    "author": "Haydz6",
+    "short_name": "ActiveServers",
+    "version": "1.0",
+    "content_scripts": [{
+        "matches": [
+            "https://*.roblox.com/users/*/inventory"
+        ],
+        "js": [
+            "js/createelements.js",
+            "js/getactiveprivateservers.js",
+            "js/getelements.js",
+            "js/main.js"
+        ],
+        "run_at": "document_start",
+        "all_frames": true
+    }]
+}

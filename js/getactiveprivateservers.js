@@ -28,12 +28,6 @@ async function RequestFunc(URL, Method, Headers, Body, CredientalsInclude){
       }
   
       if (!Response.ok && (ResBody?.message == "Token Validation Failed" || ResBody?.errors?.[0]?.message == "Token Validation Failed")){
-        if (ResBody?.Result == "Invalid authentication!"){
-          CachedAuthKey = ""
-          window.localStorage.removeItem("ExtraOutfitsRobloxAuthKey")
-          console.log("auth key invalid, getting a new one")
-        }
-  
         console.log("sending with csrf token")
         return await RequestFunc(URL, Method, Headers, Body, CredientalsInclude)
       }
